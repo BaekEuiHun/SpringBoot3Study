@@ -13,12 +13,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
-
 @Slf4j
 @Controller
 public class ArticleController {
   @Autowired private ArticleRepository articleRepository;
 
+  // 글 작성
   @GetMapping("/articles/new")
   public String newArticleForm() {
     return "articles/new";
@@ -39,6 +39,7 @@ public class ArticleController {
     return "redirect:/articles/" + saved.getId();
   }
 
+  // 아이디를 통한 조회
   @GetMapping("/articles/{id}")
   public String show(@PathVariable Long id, Model model) {
     log.info("id = " + id);
@@ -50,13 +51,24 @@ public class ArticleController {
     return "articles/show";
   }
 
+  // 목록
   @GetMapping("/articles")
-  public String index(Model model){
+  public String index(Model model) {
     // 1. 모든 데이터 가져오기
     List<Article> articleEntityList = articleRepository.findAll();
     // 2. 모델에 데이터 등록하기
     model.addAttribute("articleList", articleEntityList);
     // 3. 뷰 페이지 설정하기
     return "articles/index";
+  }
+
+  @GetMapping("/articles/{id}/edit")
+  public String edit(@PathVariable Long id, Model model) {
+    // 수정할 데이터 가져오기
+    Article articleEntity = articleRepository.findById(id).orElse(null);
+    // 모델에 데이터 등록하기
+    model.addAttribute("article", articleEntity);
+    // 뷰 페이지 설정하기
+    return "articles/edit";
   }
 }
