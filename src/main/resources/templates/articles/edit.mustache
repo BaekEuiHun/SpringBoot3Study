@@ -1,7 +1,5 @@
 {{>layouts/header}}
-
 {{#article}}
-
     <form class="container" action="/articles/update" method="post">
         <input name="id" type="hidden" value="{{id}}">
         <div class="mb-3">
@@ -16,5 +14,4 @@
         <a href="/articles/{{id}}">Back</a>
     </form>
 {{/article}}
-
 {{>layouts/footer}}
