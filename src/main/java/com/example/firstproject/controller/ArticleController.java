@@ -89,6 +89,7 @@ public class ArticleController {
     return "redirect:/articles/" + articleEntity.getId();
   }
 
+
   // 삭제하기
   @GetMapping("/articles/{id}/delete")
   public String delete(@PathVariable Long id, RedirectAttributes rttr) {
