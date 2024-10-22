@@ -4,6 +4,7 @@ import com.example.firstproject.entity.Article;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 
+
 @AllArgsConstructor
 @ToString
 public class ArticleForm {
