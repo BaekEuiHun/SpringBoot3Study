@@ -36,7 +36,7 @@ public class ArticleApiController {
   public ResponseEntity<Article> update(@PathVariable Long id, @RequestBody ArticleForm dto) {
     Article article = dto.toEntity();
     Article target = articleRepository.findById(id).orElse(null);
-    if (target != null || id != article.getId()) {
+    if (target == null || id != article.getId()) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
     target.patch(article);
