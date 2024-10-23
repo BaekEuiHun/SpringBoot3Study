@@ -39,7 +39,8 @@ public class ArticleApiController {
     if (target != null || id != article.getId()) {
       return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
     }
-    Article updated = articleRepository.save(article);
+    target.patch(article);
+    Article updated = articleRepository.save(target);
     return ResponseEntity.status(HttpStatus.OK).body(updated);
   }
 }
