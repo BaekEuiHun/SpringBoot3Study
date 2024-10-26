@@ -40,7 +40,7 @@ public class ArticleController {
     return "redirect:/articles/" + saved.getId();
   }
 
-  // 아이디를 통한 조회
+  // 아이디를 통한 게시글 조회
   @GetMapping("/articles/{id}")
   public String show(@PathVariable Long id, Model model) {
     log.info("id = " + id);
