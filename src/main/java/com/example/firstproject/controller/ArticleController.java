@@ -52,7 +52,7 @@ public class ArticleController {
     return "articles/show";
   }
 
-  // 목록
+  // 게시글 전체 목록
   @GetMapping("/articles")
   public String index(Model model) {
     // 1. 모든 데이터 가져오기
