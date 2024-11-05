@@ -17,12 +17,12 @@ import java.util.List;
 public class ArticleApiController {
   @Autowired private ArticleService articleService;
   @Autowired private ArticleRepository articleRepository;
-
+  //게시글 목록 조회
   @GetMapping("/api/articles")
   public List<Article> index() {
     return articleService.findAll();
   }
-
+  //단일 게시글 조회
   @GetMapping("api/articles/{id}")
   public Article show(@PathVariable Long id) {
     return articleService.show(id);
