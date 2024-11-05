@@ -35,7 +35,7 @@ public class ArticleApiController {
         ? ResponseEntity.status(HttpStatus.OK).body(created)
         : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
   }
-
+  // 게시글 수정
   @PatchMapping("api/articles/{id}")
   public ResponseEntity<Article> update(@PathVariable Long id, @RequestBody ArticleForm dto) {
     Article updated = articleService.update(id, dto);
@@ -43,7 +43,7 @@ public class ArticleApiController {
         ? ResponseEntity.status(HttpStatus.OK).body(updated)
         : ResponseEntity.status(HttpStatus.BAD_REQUEST).body(null);
   }
-
+  // 게시글 삭제
   @DeleteMapping("api/articles/{id}")
   public ResponseEntity<Article> delete(@PathVariable Long id) {
     Article deleted = articleService.delete(id);
