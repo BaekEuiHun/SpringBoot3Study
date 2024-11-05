@@ -27,7 +27,7 @@ public class ArticleApiController {
   public Article show(@PathVariable Long id) {
     return articleService.show(id);
   }
-
+  // 게시글 등록
   @PostMapping("api/articles")
   public ResponseEntity<Article> create(@RequestBody ArticleForm dto) {
     Article created = articleService.create(dto);
